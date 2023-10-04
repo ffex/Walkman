@@ -9,6 +9,18 @@ import { UserList } from "./user/UserList";
 import { UserCreate } from "./user/UserCreate";
 import { UserEdit } from "./user/UserEdit";
 import { UserShow } from "./user/UserShow";
+import { BlankPageList } from "./blankPage/BlankPageList";
+import { BlankPageCreate } from "./blankPage/BlankPageCreate";
+import { BlankPageEdit } from "./blankPage/BlankPageEdit";
+import { BlankPageShow } from "./blankPage/BlankPageShow";
+import { TodoListList } from "./todoList/TodoListList";
+import { TodoListCreate } from "./todoList/TodoListCreate";
+import { TodoListEdit } from "./todoList/TodoListEdit";
+import { TodoListShow } from "./todoList/TodoListShow";
+import { TodoItemList } from "./todoItem/TodoItemList";
+import { TodoItemCreate } from "./todoItem/TodoItemCreate";
+import { TodoItemEdit } from "./todoItem/TodoItemEdit";
+import { TodoItemShow } from "./todoItem/TodoItemShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -41,6 +53,27 @@ const App = (): React.ReactElement => {
           edit={UserEdit}
           create={UserCreate}
           show={UserShow}
+        />
+        <Resource
+          name="BlankPage"
+          list={BlankPageList}
+          edit={BlankPageEdit}
+          create={BlankPageCreate}
+          show={BlankPageShow}
+        />
+        <Resource
+          name="TodoList"
+          list={TodoListList}
+          edit={TodoListEdit}
+          create={TodoListCreate}
+          show={TodoListShow}
+        />
+        <Resource
+          name="TodoItem"
+          list={TodoItemList}
+          edit={TodoItemEdit}
+          create={TodoItemCreate}
+          show={TodoItemShow}
         />
       </Admin>
     </div>
