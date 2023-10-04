@@ -1,0 +1,44 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt DateTime @default(now())
+  firstName String?
+  id        String   @id @default(cuid())
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+model BlankPage {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  text      String?
+  title     String?
+  updatedAt DateTime @updatedAt
+}
+
+model TodoList {
+  createdAt DateTime   @default(now())
+  id        String     @id @default(cuid())
+  title     String?
+  todoItems TodoItem[]
+  updatedAt DateTime   @updatedAt
+}
+
+model TodoItem {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  listId    TodoList @relation(fields: [id], references: [id])
+  id        String
+  text      String?
+  updatedAt DateTime @updatedAt
+}
